@@ -38,29 +38,4 @@ You can adjust the following parameters:
 - `evluateClassifier(X, y, W1Star, W2Star, classA_test, classB_test, n_test)`: Evaluates the trained model and displays accuracy.
 - `plotData(X, y, W1, W2, classA, classB)`: Plots the class data and decision boundary.
 
-## Usage
 
-1. **Install necessary dependencies**:
-   Ensure you have a MATLAB environment set up as this implementation is MATLAB-based.
-
-2. **Run the code**:
-   Adjust the parameters as needed in the script and run it to generate data, train the model, and evaluate it.
-
-3. **Visualize results**:
-   The script will plot the data and display training and validation loss as well as accuracy metrics.
-
-## Example
-
-```matlab
-non_linear_data = true;
-n = 100;
-nodes = 40;
-alpha = 0.9;
-eta = 0.05;
-epochs = 200;
-ratioA = 0.5;
-ratioB = 1;
-[classA, classB] = generateClasses(n, mA, mB, sigmaA, sigmaB, non_linear_data, ratioA, ratioB );
-[X, y, W1, W2, dW1, dW2] = generateData(classA_train, classB_train, n, nodes);
-[W1Star, W2Star] = MLP(X, X_test, y, y_test, W1, W2, nodes, n, epochs, alpha, eta, dW1, dW2, n_test);
-evluateClassifier(X_test, y_test, W1Star, W2Star, classA_test, classB_test, n_test);
